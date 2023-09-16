@@ -1,0 +1,47 @@
+body {
+  background-color: #000;
+}
+
+.btn-gray {
+  background-color: rgb(51, 51, 51);
+  color: white;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 200px auto;
+}
+.calculator-button {
+  border: none;
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+  font-size: 26px;
+}
+.btn-orange {
+  background-color: rgb(254, 160, 10);
+  color: white;
+}
+
+.clear-btn {
+  font-size: 17px;
+}
+
+.result {
+  color: white;
+  font-size: 26px;
+}
+
+.result-input {
+  width: 220px;
+  padding: 12px 24px;
+  margin-bottom: 12px;
+  font-size: 24px;
+  border: none;
+  border-radius: 20px;
+}
