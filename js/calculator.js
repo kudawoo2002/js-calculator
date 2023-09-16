@@ -86,6 +86,11 @@ dotEl.addEventListener("click", (e) => {
   e.preventDefault();
   const numberDot = ".";
   resultEl.value += numberDot;
+  // if (resultEl.value.includes(".")) {
+  //   return resultEl.value;
+  // } else {
+  //   resultEl.value += numberDot;
+  // }
 });
 
 plusEl.addEventListener("click", (e) => {
@@ -102,7 +107,7 @@ minusEl.addEventListener("click", (e) => {
 
 multiplyEl.addEventListener("click", (e) => {
   e.preventDefault();
-  const multiplySign = "*";
+  const multiplySign = "x";
   resultEl.value += multiplySign;
 });
 
@@ -126,8 +131,8 @@ equalEl.addEventListener("click", (e) => {
     result = Number(num1) - Number(num2);
     resultEl.value = result;
     return result;
-  } else if (total.includes("*")) {
-    [num1, num2] = total.split("*");
+  } else if (total.includes("x")) {
+    [num1, num2] = total.split("x");
     result = Number(num1) * Number(num2);
     resultEl.value = result;
     return result;
