@@ -86,17 +86,29 @@ dotEl.addEventListener("click", (e) => {
   e.preventDefault();
   const numberDot = ".";
   resultEl.value += numberDot;
-  // if (resultEl.value.includes(".")) {
-  //   return resultEl.value;
-  // } else {
-  //   resultEl.value += numberDot;
-  // }
+  if (resultEl.value.includes(".")) {
+    return resultEl.value;
+  } else {
+    resultEl.value += numberDot;
+  }
 });
 
 plusEl.addEventListener("click", (e) => {
   e.preventDefault();
+  let sum = 0;
+  console.log(e);
   const plusSign = "+";
   resultEl.value += plusSign;
+  if (resultEl.value.includes("+")) {
+    const num = resultEl.value.split("+");
+    console.log(num);
+    for (let i = 0; i < num.length; i++) {
+      sum += Number(num[i]);
+      console.log(sum);
+    }
+    sum += resultEl.value;
+    return sum;
+  }
 });
 
 minusEl.addEventListener("click", (e) => {
@@ -120,25 +132,27 @@ divideEl.addEventListener("click", (e) => {
 equalEl.addEventListener("click", (e) => {
   e.preventDefault();
   const total = resultEl.value;
+  console.log(total);
+  console.log(total.length);
 
   if (total.includes("+")) {
-    [num1, num2, o] = total.split("+");
-    result = Number(num1) + Number(num2);
+    const [num1, num2, other] = total.split("+");
+    result = Number(num1) + Number(num2) + Number(other);
     resultEl.value = result;
     return result;
   } else if (total.includes("-")) {
-    [num1, num2] = total.split("-");
-    result = Number(num1) - Number(num2);
+    [num1, num2, other] = total.split("-");
+    result = Number(num1) - Number(num2) - Number(other);
     resultEl.value = result;
     return result;
   } else if (total.includes("x")) {
     [num1, num2] = total.split("x");
-    result = Number(num1) * Number(num2);
+    result = Number(num1) * Number(num2) * Number(other);
     resultEl.value = result;
     return result;
   } else if (total.includes("/")) {
-    [num1, num2] = total.split("/");
-    result = Number(num1) / Number(num2);
+    [num1, num2, other] = total.split("/");
+    result = Number(num1) / Number(num2) / Number(other);
     resultEl.value = result;
     return result;
   }
