@@ -19,7 +19,7 @@ const resultEl = document.querySelector(".result-input");
 const clearEl = document.querySelector(".clear-btn");
 const equalEl = document.querySelector(".equalBtn");
 
-let result = 0;
+// let result = 0;
 
 one.addEventListener("click", (e) => {
   e.preventDefault();
@@ -123,6 +123,7 @@ equalEl.addEventListener("click", (e) => {
 
   if (total.includes("+")) {
     const [...nums] = total.split("+");
+    let result = 0;
     console.log(nums);
     for (let i = 0; i < nums.length; i++) {
       console.log(nums[i]);
@@ -132,7 +133,7 @@ equalEl.addEventListener("click", (e) => {
     return result;
   } else if (total.includes("-")) {
     const [...nums] = total.split("-");
-
+    let result = 0;
     for (let i = 0; i < nums.length; i++) {
       console.log(nums[i]);
       if (result === 0) {
@@ -145,6 +146,7 @@ equalEl.addEventListener("click", (e) => {
     return result;
   } else if (total.includes("x")) {
     const [...nums] = total.split("x");
+    let result = 0;
     for (let i = 0; i < nums.length; i++) {
       console.log(nums[i]);
       if (result === 0) {
@@ -157,6 +159,7 @@ equalEl.addEventListener("click", (e) => {
     return result;
   } else if (total.includes("/")) {
     const [...nums] = total.split("/");
+    let result = 0;
     for (let i = 0; i < nums.length; i++) {
       console.log(nums[i]);
       result /= Number(nums[i]);
@@ -168,6 +171,5 @@ equalEl.addEventListener("click", (e) => {
 });
 
 clearEl.addEventListener("click", (e) => {
-  result = 0;
   resultEl.value = "";
 });
