@@ -7,6 +7,12 @@ body {
   color: white;
 }
 
+.title {
+  color: #fea00a;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+}
 .container {
   border: 2px solid #fea00a;
   width: 20%;
@@ -53,4 +59,5 @@ body {
   border: none;
   border-radius: 20px;
   text-align: right;
+  outline: none;
 }
