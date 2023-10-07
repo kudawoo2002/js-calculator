@@ -17,10 +17,7 @@ const resultEl = document.querySelector(".result-input");
 const clearEl = document.querySelector(".clear-btn");
 const equalEl = document.querySelector(".equalBtn");
 
-let result;
-clearEl.addEventListener("click", () => {
-  resultEl.value = "";
-});
+let result = 0;
 
 one.addEventListener("click", (e) => {
   e.preventDefault();
@@ -95,20 +92,8 @@ dotEl.addEventListener("click", (e) => {
 
 plusEl.addEventListener("click", (e) => {
   e.preventDefault();
-  let sum = 0;
-  console.log(e);
   const plusSign = "+";
   resultEl.value += plusSign;
-  if (resultEl.value.includes("+")) {
-    const num = resultEl.value.split("+");
-    console.log(num);
-    for (let i = 0; i < num.length; i++) {
-      sum += Number(num[i]);
-      console.log(sum);
-    }
-    sum += resultEl.value;
-    return sum;
-  }
 });
 
 minusEl.addEventListener("click", (e) => {
@@ -133,27 +118,58 @@ equalEl.addEventListener("click", (e) => {
   e.preventDefault();
   const total = resultEl.value;
   console.log(total);
-  console.log(total.length);
 
   if (total.includes("+")) {
-    const [num1, num2, other] = total.split("+");
-    result = Number(num1) + Number(num2) + Number(other);
+    const [...nums] = total.split("+");
+    console.log(nums);
+    for (let i = 0; i < nums.length; i++) {
+      console.log(nums[i]);
+      result += Number(nums[i]);
+    }
     resultEl.value = result;
     return result;
   } else if (total.includes("-")) {
-    [num1, num2, other] = total.split("-");
-    result = Number(num1) - Number(num2) - Number(other);
+    const [...nums] = total.split("-");
+
+    for (let i = 0; i < nums.length; i++) {
+      console.log(nums[i]);
+      if (result === 0) {
+        result = Number(nums[i]);
+      } else {
+        result -= Number(nums[i]);
+      }
+    }
     resultEl.value = result;
     return result;
   } else if (total.includes("x")) {
-    [num1, num2] = total.split("x");
-    result = Number(num1) * Number(num2) * Number(other);
+    const [...nums] = total.split("x");
+    for (let i = 0; i < nums.length; i++) {
+      console.log(nums[i]);
+      if (result === 0) {
+        result = Number(nums[i]);
+      } else {
+        result *= Number(nums[i]);
+      }
+    }
     resultEl.value = result;
     return result;
   } else if (total.includes("/")) {
-    [num1, num2, other] = total.split("/");
-    result = Number(num1) / Number(num2) / Number(other);
+    const [...nums] = total.split("/");
+    for (let i = 0; i < nums.length; i++) {
+      console.log(nums[i]);
+      if (result !== 0) {
+        result;
+      } else {
+        result /= Number(nums[i]);
+      }
+    }
     resultEl.value = result;
     return result;
+  } else if (total.includes("+") && total.includes("-")) {
   }
+});
+
+clearEl.addEventListener("click", (e) => {
+  result = 0;
+  resultEl.value = "";
 });
