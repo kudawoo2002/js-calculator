@@ -1,3 +1,5 @@
+"use strict";
+
 const one = document.querySelector(".btnOne");
 const two = document.querySelector(".btnTwo");
 const three = document.querySelector(".btnThree");
@@ -157,11 +159,7 @@ equalEl.addEventListener("click", (e) => {
     const [...nums] = total.split("/");
     for (let i = 0; i < nums.length; i++) {
       console.log(nums[i]);
-      if (result !== 0) {
-        result;
-      } else {
-        result /= Number(nums[i]);
-      }
+      result /= Number(nums[i]);
     }
     resultEl.value = result;
     return result;
